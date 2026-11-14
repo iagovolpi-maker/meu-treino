@@ -129,7 +129,7 @@ function render(){var y=window.scrollY,t=UI.tab;$("#v").innerHTML=t==="h"?vHoje(
 function durT(){var e=$("#dur");if(e&&S.act)e.textContent=Math.round((Date.now()-S.act.start)/60000)+" min"}
 function dl(name,txt,mime){try{var a=document.createElement("a");a.href=URL.createObjectURL(new Blob([txt],{type:mime}));a.download=name;document.body.appendChild(a);a.click();a.remove()}catch(e){}}
 function csv(){var r=[["data","treino","exercicio","serie","carga_kg","reps","rir","desconforto"]];done().forEach(function(s){s.list.forEach(function(e){s.ex[e.id].sets.forEach(function(x,i){if(x.d)r.push([new Date(s.end).toISOString(),s.name,e.name,i+1,x.w,x.r,x.rir,s.ex[e.id].pain?1:0])})})});return r.map(function(a){return a.map(function(c){return'"'+String(c).replace(/"/g,'""')+'"'}).join(",")}).join("\n")}
-function fx(){var f=UI.fx;UI.fx=null;if(!f)return;var el=document.querySelector('input[data-f="w"][data-e="'+f[0]+'"][data-i="'+f[1]+'"]');if(el){try{el.focus();el.scrollIntoView({block:"center",behavior:"smooth"})}catch(e){}}}
+function fx(){var f=UI.fx;UI.fx=null;if(!f)return;var el=document.querySelector('input[data-f="w"][data-e="'+f[0]+'"][data-i="'+f[1]+'"]');if(el){try{el.scrollIntoView({block:"center",behavior:"smooth"})}catch(e){}}}
 /* eventos */
 document.addEventListener("click",function(ev){var t=ev.target.closest("[data-a]");if(!t)return;var a=t.dataset.a,d=t.dataset,s=S.act,x;
 try{switch(a){
